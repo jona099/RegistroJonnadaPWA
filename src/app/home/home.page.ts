@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { JornadaService } from '../services/jornada.service';
+import { JornadaService } from '../services/jornada';
 import { CommonModule, TitleCasePipe } from '@angular/common'; // Importar CommonModule
 import { RouterLink } from '@angular/router'; // Importar RouterLink
 import { 

@@ -1,0 +1,69 @@
+/* Estilos para la página de Home */
+
+ion-card-title {
+    font-size: 1.5rem;
+    /* 24px */
+    font-weight: 700;
+    color: var(--ion-color-dark-shade);
+}
+
+ion-item.stat-item {
+    --background: var(--ion-color-light-tint);
+    --border-radius: 8px;
+    --inner-padding-start: 12px;
+    --padding-start: 0;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    ion-icon {
+        font-size: 1.8rem;
+        margin-right: 12px;
+    }
+    ion-label p {
+        font-size: 0.8rem;
+        color: var(--ion-color-medium-shade);
+        text-transform: uppercase;
+    }
+    ion-label h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--ion-color-dark-shade);
+    }
+}
+
+
+/* Colores específicos para los items */
+
+ion-item.worked-days {
+    --background: rgba(45, 211, 111, 0.1);
+    ion-icon {
+        color: var(--ion-color-success);
+    }
+}
+
+ion-item.holiday-worked {
+    --background: rgba(255, 196, 9, 0.1);
+    ion-icon {
+        color: var(--ion-color-warning);
+    }
+}
+
+ion-item.holiday-off {
+    --background: rgba(245, 61, 61, 0.1);
+    ion-icon {
+        color: var(--ion-color-danger);
+    }
+}
+
+ion-item.week-worked {
+    --background: rgba(56, 128, 255, 0.1);
+    ion-icon {
+        color: var(--ion-color-primary);
+    }
+}
+
+ion-item.total-days {
+    --background: var(--ion-color-light-shade);
+    ion-icon {
+        color: var(--ion-color-medium);
+    }
+}

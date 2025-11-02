@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-title>Resumen Mensual</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+    <ion-card class="ion-no-margin">
+        <ion-card-header>
+            <ion-card-title>
+                Resumen de {{ jornadaService.getCurrentMonthName() | titlecase }} {{ jornadaService.currentMonth().getFullYear() }}
+            </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+
+            <!-- Días Trabajados -->
+            <ion-item lines="none" class="stat-item worked-days">
+                <ion-icon name="briefcase-outline" slot="start"></ion-icon>
+                <ion-label>
+                    <p>Días Trabajados</p>
+                    <h3>{{ jornadaService.monthlySummary().workedDays }}</h3>
+                </ion-label>
+            </ion-item>
+
+            <!-- Trabajados Finde/Festivo -->
+            <ion-item lines="none" class="stat-item holiday-worked">
+                <ion-icon name="calendar-outline" slot="start"></ion-icon>
+                <ion-label>
+                    <p>Trabajados Finde/Festivo</p>
+                    <h3>{{ jornadaService.monthlySummary().workedHolidayDays }}</h3>
+                </ion-label>
+            </ion-item>
+
+            <!-- Días Libres Finde/Festivo -->
+            <ion-item lines="none" class="stat-item holiday-off">
+                <ion-icon name="sunny-outline" slot="start"></ion-icon>
+                <ion-label>
+                    <p>Días Libres Finde/Festivo</p>
+                    <h3>{{ jornadaService.monthlySummary().weekendOrHolidayDays - jornadaService.monthlySummary().workedHolidayDays }}</h3>
+                </ion-label>
+            </ion-item>
+
+            <!-- Trabajados Semana Actual -->
+            <ion-item lines="none" class="stat-item week-worked">
+                <ion-icon name="today-outline" slot="start"></ion-icon>
+                <ion-label>
+                    <p>Trabajados Semana Actual</p>
+                    <h3>{{ jornadaService.monthlySummary().currentWeekWorkedDays }}</h3>
+                </ion-label>
+            </ion-item>
+
+            <!-- Total Días del Mes -->
+            <ion-item lines="none" class="stat-item total-days">
+                <ion-icon name="stats-chart-outline" slot="start"></ion-icon>
+                <ion-label>
+                    <p>Total Días del Mes</p>
+                    <h3>{{ jornadaService.monthlySummary().totalDaysInMonth }}</h3>
+                </ion-label>
+            </ion-item>
+
+        </ion-card-content>
+    </ion-card>
+
+    <!-- Botón de navegación a Calendario -->
+    <ion-card class="ion-margin-top">
+        <ion-card-header>
+            <ion-card-title>Registrar Jornada</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p class="ion-margin-bottom">Usa el calendario para registrar tus jornadas diarias y consultar los festivos.</p>
+            <!-- El routerLink te llevará a la pestaña de calendario -->
+            <ion-button expand="block" (click)="goToCalendar()" color="secondary">
+                <ion-icon (click)="goToCalendar()" slot="start" name="calendar-outline"></ion-icon>
+                Abrir Calendario
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

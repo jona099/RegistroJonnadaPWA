@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { JornadaService } from '../services/jornada';
 import { CommonModule, TitleCasePipe } from '@angular/common'; // Importar CommonModule
-import { RouterLink } from '@angular/router'; // Importar RouterLink
+import { Router, RouterLink } from '@angular/router'; // Importar RouterLink
 import { 
   IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, 
   IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, 
@@ -26,10 +26,13 @@ export class HomePage {
   
   public jornadaService = inject(JornadaService);
 
-  constructor() {
+  constructor(private routerLink:Router) {
     // El servicio se inyecta y está listo para usarse en el HTML.
   }
 
+  goToCalendar() {
+    this.routerLink.navigateByUrl('/calendar');
+  }
   // Nota: El botón de navegación usa routerLink, 
   // por lo que no necesitas la función goToCalendar() aquí.
 }
